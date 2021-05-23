@@ -9,13 +9,25 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthInterceptor} from './services/auth.interceptors';
+import { SolicitudComponent } from './components/solicitud/solicitud.component';
+import { NavBarComponent } from './partials/nav-bar/nav-bar.component';
+import { MenuComponent } from './partials/menu/menu.component';
+import { LoginComponent } from './components/usuarios/login/login.component';
+import { RegistroComponent } from './components/usuarios/registro/registro.component';
+import { PerfilComponent } from './components/usuarios/perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    SolicitudComponent,
+    NavBarComponent,
+    MenuComponent,
+    LoginComponent,
+    RegistroComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
