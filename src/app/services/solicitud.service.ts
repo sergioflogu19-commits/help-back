@@ -32,9 +32,27 @@ export class SolicitudService {
     return this.http.get(this.url + '/parametros/departamento');
   }
 
+  public roles (): Observable<any>{
+    return this.http.get(this.url + '/parametros/rol');
+  }
+
+  public cargos (): Observable<any>{
+    return this.http.get(this.url + '/parametros/cargo');
+  }
+
   public guardarSolicitud(cust: any): Observable<any>{
     return this.http.post(this.url + '/funcionario/solicitar_req', cust);
   }
+
+  public guardarUsuario(cust: any): Observable<any>{
+    return this.http.post(this.url + '/registro', cust);
+  }
+
+  public entrarUsuario(cust: any): Observable<any>{
+    return this.http.post(this.url + '/login', cust);
+  }
+
+
 
 
 

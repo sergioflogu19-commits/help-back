@@ -99,7 +99,7 @@ export class SolicitudComponent implements OnInit {
       return;
     }
     Swal.fire({
-      title: 'Advertencia',
+      title: 'Pregunta',
       text: '¿Está seguro de enviar la Solicitud?',
       icon: 'warning',
       showCancelButton: true,
@@ -107,6 +107,13 @@ export class SolicitudComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.isConfirmed) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Guardando solicitud...',
+          text: 'Espere un momento por favor!',
+        });
+        Swal.showLoading();
+        this.solicitud.token = localStorage.getItem('token');
         this.solicitudService.guardarSolicitud(this.solicitud).subscribe((res: any) =>{
           if (res.respuesta){
             this.solicitud = new Solicitud();
@@ -127,6 +134,13 @@ export class SolicitudComponent implements OnInit {
             Toast.fire({
               icon: 'success',
               title: 'Solicitud enviada con éxito'
+            });
+          }
+          else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: res.mensaje,
             });
           }
         });
