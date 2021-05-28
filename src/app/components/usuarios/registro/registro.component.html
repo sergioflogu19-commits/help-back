@@ -64,8 +64,8 @@
               <label for="rol">Rol <span class="text-danger">(*)</span></label>
               <select name="rol" id="rol" class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && f.rol.errors }"
-                      formControlName="rol" [(ngModel)]="usuario.rol_id_rol">
-                <option *ngFor="let data of roles" [value]="data.id_rol">{{ data.rol }}</option>
+                      formControlName="rol" [(ngModel)]="usuario.rol_id_rol" disabled>
+                <option value="1" [selected]="true">Funcionario</option>
               </select>
               <div *ngIf="submitted && f.rol.errors" class="invalid-feedback">
                 <div *ngIf="f.rol.errors.required">El rol es requerido</div>

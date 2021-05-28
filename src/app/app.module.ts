@@ -13,6 +13,8 @@ import { PerfilComponent } from './components/usuarios/perfil/perfil.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
 import { UsuarioComponent } from './components/usuarios/usuario.component';
+import { TicketComponent } from './components/ticket/ticket.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,16 @@ import { UsuarioComponent } from './components/usuarios/usuario.component';
     RegistroComponent,
     PerfilComponent,
     NopagefoundComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
   ],

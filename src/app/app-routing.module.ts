@@ -6,6 +6,7 @@ import {LoginComponent} from './components/usuarios/login/login.component';
 import {NopagefoundComponent} from './components/nopagefound/nopagefound.component';
 import {UsuarioComponent} from './components/usuarios/usuario.component';
 import {AuthGuard} from './guards/auth.guard';
+import {TicketComponent} from './components/ticket/ticket.component';
 
 const routes: Routes = [
   { path: '',
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'solicitud', component: SolicitudComponent,  },
       { path: 'registro', component: RegistroComponent },
+      { path: 'ticket', component: TicketComponent },
     ],
     canActivate: [AuthGuard]
   },

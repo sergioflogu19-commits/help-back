@@ -31,8 +31,6 @@ export class SolicitudComponent implements OnInit {
     this.solicitud = new Solicitud();
     this.solicitud.categoria_id = 0;
     this.solicitud.municipio_id = 0;
-    this.solicitud.usuario_id_usuario = 1;
-
   }
 
   ngOnInit(): void {
@@ -114,12 +112,12 @@ export class SolicitudComponent implements OnInit {
         });
         Swal.showLoading();
         this.solicitud.token = localStorage.getItem('token');
+        this.solicitud.email = localStorage.getItem('usuario');
         this.solicitudService.guardarSolicitud(this.solicitud).subscribe((res: any) =>{
           if (res.respuesta){
             this.solicitud = new Solicitud();
             this.solicitud.categoria_id = 0;
             this.solicitud.municipio_id = 0;
-            this.solicitud.usuario_id_usuario = 1;
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',

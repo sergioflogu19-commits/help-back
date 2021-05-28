@@ -1,0 +1,71 @@
+<div class="jumbotron">
+  <div class="container">
+    <h2>Tickets</h2>
+    <div class="row">
+      <div class="col table-responsive">
+        <table class="table table-bordered table-sm">
+          <tr>
+            <th class="bg-info text-white">Numero</th>
+            <th class="bg-info text-white">Categoría</th>
+            <th class="bg-info text-white">Tipo Requerimiento</th>
+            <th class="bg-info text-white">Estado</th>
+            <th class="bg-info text-white">Asignado</th>
+            <th class="bg-info text-white">División</th>
+            <th class="bg-info text-white">Fecha Solicitud</th>
+            <th class="bg-info text-white">Acción</th>
+          </tr>
+          <tr *ngFor="let data of tickets">
+            <td>{{ data.numero }}</td>
+            <td>{{ data.categoria }}</td>
+            <td>{{ data.sub_cat }}</td>
+            <td>{{ data.estado }}</td>
+            <td>{{ data.usuario }}</td>
+            <td>{{ data.division }}</td>
+            <td>{{ data.fecha_solicitud | date:"dd/MM/yyyy" }}</td>
+            <td>
+              <button class="btn btn-info btn-sm" (click)="detalle(data.id_ticket, content)">Detalle</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header bg-success text-white">
+    <h4 class="modal-title">Detalle Ticket</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>{{ tiket.sub_cat }} #{{ tiket.numero }}</h4>
+        <h5>Descripción: <br><small>{{ tiket.descripcion }}</small></h5>
+      </div>
+      <div class="col-sm-6">
+        <h5>Categoria: <small>{{ tiket.categoria }}</small></h5>
+        <h5>Tipo Requerimiento: <small>{{ tiket.sub_cat }}</small></h5>
+        <h5>Estado: <small>{{ tiket.estado }}</small></h5>
+        <h5>Departamento: <small>{{ tiket.departamento }}</small></h5>
+        <h5>Sucursal: <small>{{ tiket.sucursal }}</small></h5>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-8">
+        <h4>Ticket abierto por: {{ tiket.usuario }}</h4>
+        <h5>Fecha: {{ tiket.fecha_ticket  | date:"dd/MM/yyyy" }}</h5>
+        <hr>
+        <h4>Solicitud</h4>
+        <h5>Fecha: {{ tiket.fecha_solicitud  | date:"dd/MM/yyyy" }}</h5>
+      </div>
+      <div class="col-sm-4">
+        <button class="btn btn-success">Tomar</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
