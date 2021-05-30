@@ -4,9 +4,10 @@ import {SolicitudComponent} from './components/solicitud/solicitud.component';
 import {RegistroComponent} from './components/usuarios/registro/registro.component';
 import {LoginComponent} from './components/usuarios/login/login.component';
 import {NopagefoundComponent} from './components/nopagefound/nopagefound.component';
-import {UsuarioComponent} from './components/usuarios/usuario.component';
+import {UsuarioComponent} from './components/usuario.component';
 import {AuthGuard} from './guards/auth.guard';
 import {TicketComponent} from './components/ticket/ticket.component';
+import {HomeComponent} from './components/home/home.component';
 
 const routes: Routes = [
   { path: '',
@@ -15,6 +16,8 @@ const routes: Routes = [
       { path: 'solicitud', component: SolicitudComponent,  },
       { path: 'registro', component: RegistroComponent },
       { path: 'ticket', component: TicketComponent },
+      { path: 'home', component: HomeComponent },
+      { path: '', redirectTo: 'solicitud', pathMatch: 'full' },
     ],
     canActivate: [AuthGuard]
   },

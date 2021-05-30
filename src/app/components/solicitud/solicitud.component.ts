@@ -60,6 +60,12 @@ export class SolicitudComponent implements OnInit {
     });
   }
 
+  public limpiar(){
+    this.solicitud = new Solicitud();
+    this.solicitud.categoria_id = 0;
+    this.solicitud.municipio_id = 0;
+  }
+
   isFieldValid(field: string) {
     return !this.form.get(field).valid && this.form.get(field).touched;
   }
@@ -97,12 +103,12 @@ export class SolicitudComponent implements OnInit {
       return;
     }
     Swal.fire({
-      title: 'Pregunta',
-      text: '¿Está seguro de enviar la Solicitud?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si',
-      cancelButtonText: 'No'
+        title: 'Pregunta',
+        text: '¿Está seguro de enviar la Solicitud?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({

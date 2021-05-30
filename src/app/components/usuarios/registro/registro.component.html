@@ -61,14 +61,14 @@
           </div>
           <div class="form-row">
             <div class="col-sm-4">
-              <label for="rol">Rol <span class="text-danger">(*)</span></label>
+              <label for="rol">División <span class="text-danger">(*)</span></label>
               <select name="rol" id="rol" class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f.rol.errors }"
-                      formControlName="rol" [(ngModel)]="usuario.rol_id_rol" disabled>
-                <option value="1" [selected]="true">Funcionario</option>
+                      [ngClass]="{ 'is-invalid': submitted && f.division.errors }"
+                      formControlName="division" [(ngModel)]="usuario.division_id_division">
+                <option *ngFor="let data of divisiones" [value]="data.id_division">{{ data.division }}</option>
               </select>
-              <div *ngIf="submitted && f.rol.errors" class="invalid-feedback">
-                <div *ngIf="f.rol.errors.required">El rol es requerido</div>
+              <div *ngIf="submitted && f.division.errors" class="invalid-feedback">
+                <div *ngIf="f.division.errors.required">División es requerido</div>
               </div>
             </div>
             <div class="col-sm-4">

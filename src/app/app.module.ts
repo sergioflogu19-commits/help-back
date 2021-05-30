@@ -12,9 +12,10 @@ import { RegistroComponent } from './components/usuarios/registro/registro.compo
 import { PerfilComponent } from './components/usuarios/perfil/perfil.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
-import { UsuarioComponent } from './components/usuarios/usuario.component';
+import { UsuarioComponent } from './components/usuario.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PerfilComponent,
     NopagefoundComponent,
     UsuarioComponent,
-    TicketComponent
+    TicketComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

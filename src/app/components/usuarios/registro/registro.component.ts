@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {SolicitudService} from '../../../services/solicitud.service';
-import {RolModel} from '../../../models/rol.model';
+import {DivisionModel} from '../../../models/division.model';
 import {CargoModel} from '../../../models/cargo.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsuarioModel} from '../../../models/usuario.model';
 import Swal from 'sweetalert2';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,13 +14,14 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent implements OnInit {
 
-  public roles: RolModel[] = [];
+  public divisiones: DivisionModel[] = [];
   public cargos: CargoModel[] = [];
   public form: FormGroup;
   public usuario: UsuarioModel;
   public submitted = false;
 
   constructor(
+    private authService: AuthService,
     private solicitudService: SolicitudService,
     private formBuilder: FormBuilder
   ) {
@@ -31,8 +33,8 @@ export class RegistroComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, Validators.required],
       password2: [null, Validators.required],
-      rol: [null, Validators.required],
-      cargo: [null, Validators.required]
+      cargo: [null, Validators.required],
+      division: [null, Validators.required]
     });
   }
 
@@ -45,9 +47,9 @@ export class RegistroComponent implements OnInit {
   }
 
   private cargaParametros() {
-    this.solicitudService.roles().subscribe((res: any) => {
+    this.solicitudService.divisiones().subscribe((res: any) => {
       if (res.respuesta) {
-        this.roles = res.roles;
+        this.divisiones = res.divisiones;
       }
     });
     this.solicitudService.cargos().subscribe((res: any) => {
@@ -92,7 +94,7 @@ export class RegistroComponent implements OnInit {
         });
         Swal.showLoading();
         this.usuario.token = localStorage.getItem('token');
-        this.solicitudService.guardarUsuario(this.usuario).subscribe((resp: any) => {
+        this.authService.guardarUsuario(this.usuario).subscribe((resp: any) => {
           if (resp.respuesta) {
             this.usuario = new UsuarioModel();
             this.submitted = false;

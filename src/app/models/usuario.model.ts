@@ -5,7 +5,7 @@ export class UsuarioModel {
   email: string;
   password: string;
   password2: string;
-  rol_id_rol: number;
+  division_id_division: number;
   cargo_id_cargo: number;
   token:string;
 }
