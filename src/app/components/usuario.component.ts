@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
+import Swal from "sweetalert2";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -11,7 +13,8 @@ export class UsuarioComponent implements OnInit {
   public menu: any[];
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +35,22 @@ export class UsuarioComponent implements OnInit {
             this.menu = this.authService.menuAdmin;
             break;
         }
+      }
+      else{
+        Swal.fire({
+          title: 'Sesion Expirada',
+          text: "¿Desea volver al Login para acceder a la aplicación?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si, ir a Login',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigateByUrl('/login');
+          }
+        })
       }
     });
   }

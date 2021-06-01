@@ -13,8 +13,6 @@ import {AuthService} from '../../../services/auth.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-
-  public divisiones: DivisionModel[] = [];
   public cargos: CargoModel[] = [];
   public form: FormGroup;
   public usuario: UsuarioModel;
@@ -34,7 +32,6 @@ export class RegistroComponent implements OnInit {
       password: [null, Validators.required],
       password2: [null, Validators.required],
       cargo: [null, Validators.required],
-      division: [null, Validators.required]
     });
   }
 
@@ -47,11 +44,6 @@ export class RegistroComponent implements OnInit {
   }
 
   private cargaParametros() {
-    this.solicitudService.divisiones().subscribe((res: any) => {
-      if (res.respuesta) {
-        this.divisiones = res.divisiones;
-      }
-    });
     this.solicitudService.cargos().subscribe((res: any) => {
       if (res.respuesta) {
         this.cargos = res.cargos;

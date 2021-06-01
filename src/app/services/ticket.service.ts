@@ -5,24 +5,33 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class TicketService {
-  private url: string = 'http://localhost/help-back/public/api/agente';
+  private url: string = 'http://localhost/help-back/public/api';
   constructor(
     private http: HttpClient
   ) { }
 
   public listado(){
-    return this.http.post(`${this.url}/tickets`, null);
+    return this.http.post(`${this.url}/agente/tickets`, null);
   }
 
+  public listadoFuncionario(cust: any){
+    return this.http.post(`${this.url}/funcionario/ver_solicitudes`, cust);
+  }
+
+  public calificacion(cust: any){
+    return this.http.post(`${this.url}/funcionario/calificacion`, cust);
+  }
+
+
   public elegir(cust: any){
-    return this.http.post(`${this.url}/elegir_ticket`, cust);
+    return this.http.post(`${this.url}/agente/elegir_ticket`, cust);
   }
 
   public tomar(cust: any){
-    return this.http.post(`${this.url}/tomar_ticket`, cust);
+    return this.http.post(`${this.url}/agente/tomar_ticket`, cust);
   }
 
   public terminar(cust: any){
-    return this.http.post(`${this.url}/terminar_ticket`, cust);
+    return this.http.post(`${this.url}/agente/terminar_ticket`, cust);
   }
 }

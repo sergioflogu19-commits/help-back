@@ -61,17 +61,6 @@
           </div>
           <div class="form-row">
             <div class="col-sm-4">
-              <label for="rol">División <span class="text-danger">(*)</span></label>
-              <select name="rol" id="rol" class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f.division.errors }"
-                      formControlName="division" [(ngModel)]="usuario.division_id_division">
-                <option *ngFor="let data of divisiones" [value]="data.id_division">{{ data.division }}</option>
-              </select>
-              <div *ngIf="submitted && f.division.errors" class="invalid-feedback">
-                <div *ngIf="f.division.errors.required">División es requerido</div>
-              </div>
-            </div>
-            <div class="col-sm-4">
               <label for="cargo">Cargo <span class="text-danger">(*)</span></label>
               <select name="cargo" id="cargo" class="form-control"
                       [ngClass]="{ 'is-invalid': submitted && f.cargo.errors }"

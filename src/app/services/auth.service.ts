@@ -11,6 +11,7 @@ export class AuthService {
   public menuFuncionario = [
     { url: '/home', titulo: 'Home'},
     { url: '/solicitud', titulo: 'Solicitud' },
+    { url: '/solicitudes', titulo: 'Solicitudes' },
   ];
   public menuAgente = [
     { url: '/home', titulo: 'Home' },

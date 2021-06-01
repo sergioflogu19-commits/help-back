@@ -16,6 +16,8 @@ import { UsuarioComponent } from './components/usuario.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
+import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
+import { CalificacionPipe } from './pipes/calificacion.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HomeComponent } from './components/home/home.component';
     NopagefoundComponent,
     UsuarioComponent,
     TicketComponent,
-    HomeComponent
+    HomeComponent,
+    SolicitudesComponent,
+    CalificacionPipe
   ],
   imports: [
     BrowserModule,

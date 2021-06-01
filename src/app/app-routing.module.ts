@@ -8,12 +8,14 @@ import {UsuarioComponent} from './components/usuario.component';
 import {AuthGuard} from './guards/auth.guard';
 import {TicketComponent} from './components/ticket/ticket.component';
 import {HomeComponent} from './components/home/home.component';
+import {SolicitudesComponent} from './components/solicitudes/solicitudes.component';
 
 const routes: Routes = [
   { path: '',
     component: UsuarioComponent,
     children: [
       { path: 'solicitud', component: SolicitudComponent,  },
+      { path: 'solicitudes', component: SolicitudesComponent,  },
       { path: 'registro', component: RegistroComponent },
       { path: 'ticket', component: TicketComponent },
       { path: 'home', component: HomeComponent },
