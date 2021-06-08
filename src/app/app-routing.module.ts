@@ -9,6 +9,7 @@ import {AuthGuard} from './guards/auth.guard';
 import {TicketComponent} from './components/ticket/ticket.component';
 import {HomeComponent} from './components/home/home.component';
 import {SolicitudesComponent} from './components/solicitudes/solicitudes.component';
+import {IndexComponent} from './components/usuarios/index/index.component';
 
 const routes: Routes = [
   { path: '',
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'registro', component: RegistroComponent },
       { path: 'ticket', component: TicketComponent },
       { path: 'home', component: HomeComponent },
+      { path: 'listado', component: IndexComponent },
       { path: '', redirectTo: 'solicitud', pathMatch: 'full' },
     ],
     canActivate: [AuthGuard]

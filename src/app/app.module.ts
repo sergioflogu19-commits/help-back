@@ -18,6 +18,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
 import { CalificacionPipe } from './pipes/calificacion.pipe';
+import {IndexComponent} from './components/usuarios/index/index.component';
+import { RolPipe } from './pipes/rol.pipe';
+import { CargoPipe } from './pipes/cargo.pipe';
+import { DivisionPipe } from './pipes/division.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { CalificacionPipe } from './pipes/calificacion.pipe';
     TicketComponent,
     HomeComponent,
     SolicitudesComponent,
-    CalificacionPipe
+    CalificacionPipe,
+    IndexComponent,
+    RolPipe,
+    CargoPipe,
+    DivisionPipe
   ],
   imports: [
     BrowserModule,
