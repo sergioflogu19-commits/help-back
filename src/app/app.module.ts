@@ -22,6 +22,7 @@ import {IndexComponent} from './components/usuarios/index/index.component';
 import { RolPipe } from './pipes/rol.pipe';
 import { CargoPipe } from './pipes/cargo.pipe';
 import { DivisionPipe } from './pipes/division.pipe';
+import { EstadoPipe } from './pipes/estado.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DivisionPipe } from './pipes/division.pipe';
     IndexComponent,
     RolPipe,
     CargoPipe,
-    DivisionPipe
+    DivisionPipe,
+    EstadoPipe
   ],
   imports: [
     BrowserModule,
