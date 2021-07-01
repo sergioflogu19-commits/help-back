@@ -53,4 +53,8 @@ export class AuthService {
     return this.http.post(this.url + '/admin/eliminar', usuario);
   }
 
+  public listarAgente(){
+    return this.http.get(this.url + '/agente/listado');
+  }
+
 }

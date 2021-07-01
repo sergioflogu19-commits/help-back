@@ -26,11 +26,11 @@
             <td>{{ data.division }}</td>
             <td>{{ data.fecha_solicitud | date:"dd/MM/yyyy"}}</td>
             <td *ngIf="data.estado_id_estado == 3">
-              <button class="btn btn-info btn-sm" (click)="evaluar(data.id_ticket, content)">Evaluar</button>
-              <button class="btn btn-primary btn-sm" (click)="historial(data.numero, content2)">Historial</button>
+              <button class="btn btn-info btn-sm btn-block" (click)="evaluar(data.id_ticket, content)">Evaluar</button>
+              <button class="btn btn-primary btn-sm btn-block" (click)="historial(data.numero, content2)">Historial</button>
             </td>
             <td *ngIf="data.estado_id_estado != 3">
-              <button class="btn btn-primary btn-sm" (click)="historial(data.numero, content2)">Historial</button>
+              <button class="btn btn-primary btn-sm btn-block" (click)="historial(data.numero, content2)">Historial</button>
             </td>
           </tr>
         </table>

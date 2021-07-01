@@ -46,7 +46,8 @@
               <label for="departamento">Departamento<span class="text-danger">(*)</span></label>
               <select name="departamento" id="departamento" [(ngModel)]="solicitud.departamento_id_departamento"
                       class="form-control" formControlName="departamento">
-                <option *ngFor="let data of departamentos" [value]="data.id_departamento">{{ data.departamento }}</option>
+                <option *ngFor="let data of departamentos"
+                        [value]="data.id_departamento">{{ data.departamento }}</option>
               </select>
             </div>
             <div class="col-sm-3">

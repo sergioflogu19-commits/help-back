@@ -15,4 +15,6 @@ export class TicketModel {
   departamento: string;
   sucursal: string;
   usuario_requerimiento: string;
+  id_prioridad: number;
+  prioridad: string;
 }

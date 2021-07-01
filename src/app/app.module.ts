@@ -51,7 +51,7 @@ import { EstadoPipe } from './pipes/estado.pipe';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [
   ],
