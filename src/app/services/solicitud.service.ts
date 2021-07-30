@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Solicitud} from '../models/solicitud.model';
 
 @Injectable({
   providedIn: 'root'
@@ -44,8 +45,11 @@ export class SolicitudService {
     return this.http.get(this.url + '/parametros/rol');
   }
 
-  public guardarSolicitud(cust: any): Observable<any>{
-    return this.http.post(this.url + '/funcionario/solicitar_req', cust);
+  public guardarSolicitud(cust: Solicitud): Observable<any>{
+    let json = JSON.stringify(cust.archivo);
+    console.log(cust);
+    let headers = new HttpHeaders().set("Content-Type", "application/json");
+    return this.http.post(this.url + '/funcionario/solicitar_req', cust, {headers});
   }
 
   public editarSolicitud(cust: any): Observable<any>{

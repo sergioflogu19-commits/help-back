@@ -60,7 +60,11 @@ export class TicketComponent implements OnInit {
     Swal.showLoading();
     this.ticketsAll = [];
     this.tickets = [];
-    this.ticketService.listado().subscribe((resp: any) => {
+    let cust = {
+      email: localStorage.getItem('usuario'),
+      token: localStorage.getItem('token')
+    };
+    this.ticketService.listado(cust).subscribe((resp: any) => {
       if (resp.respuesta) {
         this.ticketsAll = resp.tickets;
         this.ticketsAll.forEach((value) => {

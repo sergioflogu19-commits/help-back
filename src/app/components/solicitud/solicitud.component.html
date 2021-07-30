@@ -3,7 +3,7 @@
     <h2>Solicitar Soporte</h2>
     <div class="row">
       <div class="col">
-        <form [formGroup]="form" (ngSubmit)="enviar()">
+        <form [formGroup]="form" (ngSubmit)="enviar()" enctype="multipart/form-data">
           <div class="form-row">
             <div class="col-sm-4">
               <label for="categoria">Tipo Soporte<span class="text-danger">(*)</span></label>
@@ -18,6 +18,11 @@
                       class="form-control" formControlName="tipo_solicitud">
                 <option *ngFor="let data of tipoRequerimientos" [value]="data.id_tipo_req">{{ data.sub_cat }}</option>
               </select>
+            </div>
+            <div class="col-sm-4">
+              <label for="archivo">Archivo Adjunto</label>
+              <input name="archivo" id="archivo" [(ngModel)]="solicitud.archivo" type="file"
+                     class="form-control" formControlName="archivo" (change)="fileChangeEvent($event)">
             </div>
           </div>
           <div class="form-row">

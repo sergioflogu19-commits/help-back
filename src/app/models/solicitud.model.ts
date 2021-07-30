@@ -8,5 +8,6 @@ export class Solicitud {
   categoria_id: number;
   municipio_id: number;
   sucursal_id_sucursal: number;
+  archivo: any;
   token: string;
 }
